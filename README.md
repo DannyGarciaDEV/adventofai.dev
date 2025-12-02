@@ -1,6 +1,12 @@
 # Madame Zelda's Winter Fortune Generator 🔮
 
-A magical winter fortune generator that creates themed fortunes with different moods and personalities.
+## What is Advent of AI?
+Advent of AI is a coding challenge calendar that helps developers learn to build with AI agents. Each day brings a new project focused on practical AI engineering - from CI automation to multi-agent orchestration. The challenges are designed to teach developers how to work with goose and build real-world AI applications.
+
+Think of it as an advent calendar, but instead of chocolates, you get exciting AI engineering challenges that help you master building with AI agents!
+
+## About This Project
+This is a magical winter fortune generator that creates themed fortunes with different moods and personalities, built as part of the Advent of AI challenge.
 
 ## Features
 - Generates beautifully formatted ASCII-bordered fortunes
