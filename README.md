@@ -74,6 +74,5 @@ Agentic AI is becoming a major paradigm for building modern software. Advent of 
 
 ## 📁 Suggested Project Structure
 
-advent-of-ai/
-│
-├── day01/
+- advent-of-ai/
+  - day01/
