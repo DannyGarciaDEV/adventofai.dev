@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Cocoa Championship Visualization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            background-image: url('https://www.transparenttextures.com/patterns/snow.png');
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #c62828;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #2e7d32;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .chart-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .visualization {
+            height: 400px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎄 Winter Festival Hot Cocoa Championship 🎄</h1>
+        
+        <div class="chart-container">
+            <h2>Tournament Bracket</h2>
+            <div id="tournament-bracket" class="visualization"></div>
+        </div>
+
+        <div class="chart-container">
+            <h2>Vote Distribution</h2>
+            <div id="vote-distribution" class="visualization"></div>
+        </div>
+
+        <div class="chart-container">
+            <h2>Recipe Comparison</h2>
+            <div id="recipe-comparison" class="visualization"></div>
+        </div>
+    </div>
+
+    <script>
+        // Wait for the auto-visualiser to be available
+        setTimeout(() => {
+            // Recipe Comparison (Radar Chart)
+            const radarData = {
+                labels: ["Richness", "Sweetness", "Creativity", "Presentation"],
+                datasets: [
+                    {
+                        label: "Dark Chocolate Decadence",
+                        data: [10, 5, 8, 10]
+                    },
+                    {
+                        label: "Peppermint Dream",
+                        data: [6, 9, 7, 9]
+                    },
+                    {
+                        label: "Classic Swiss Velvet",
+                        data: [8, 6, 4, 7]
+                    },
+                    {
+                        label: "Cinnamon Fireside",
+                        data: [7, 7, 8, 8]
+                    }
+                ]
+            };
+
+            // Vote Distribution (Donut Chart)
+            const donutData = {
+                title: "Total Votes by Recipe",
+                data: [
+                    { label: "Dark Chocolate Decadence", value: 1466 },
+                    { label: "Peppermint Dream", value: 1380 },
+                    { label: "Classic Swiss Velvet", value: 632 },
+                    { label: "Cinnamon Fireside", value: 654 },
+                    { label: "Spicy Mexican Mocha", value: 189 },
+                    { label: "Salted Caramel Swirl", value: 298 },
+                    { label: "White Chocolate Wonder", value: 203 },
+                    { label: "Hazelnut Heaven", value: 245 }
+                ]
+            };
+
+            // Tournament Bracket (Sankey Diagram)
+            const sankeyData = {
+                nodes: [
+                    { name: "Classic Swiss Velvet", category: "Quarterfinals" },
+                    { name: "Spicy Mexican Mocha", category: "Quarterfinals" },
+                    { name: "Peppermint Dream", category: "Quarterfinals" },
+                    { name: "Salted Caramel Swirl", category: "Quarterfinals" },
+                    { name: "Dark Chocolate Decadence", category: "Quarterfinals" },
+                    { name: "White Chocolate Wonder", category: "Quarterfinals" },
+                    { name: "Cinnamon Fireside", category: "Quarterfinals" },
+                    { name: "Hazelnut Heaven", category: "Quarterfinals" },
+                    { name: "Peppermint Dream", category: "Semifinals" },
+                    { name: "Dark Chocolate Decadence", category: "Semifinals" },
+                    { name: "Dark Chocolate Decadence", category: "Championship" }
+                ],
+                links: [
+                    { source: "Classic Swiss Velvet", target: "Peppermint Dream", value: 234 },
+                    { source: "Peppermint Dream", target: "Peppermint Dream", value: 312 },
+                    { source: "Dark Chocolate Decadence", target: "Dark Chocolate Decadence", value: 276 },
+                    { source: "Cinnamon Fireside", target: "Dark Chocolate Decadence", value: 267 },
+                    { source: "Peppermint Dream", target: "Dark Chocolate Decadence", value: 445 },
+                    { source: "Dark Chocolate Decadence", target: "Dark Chocolate Decadence", value: 512 }
+                ]
+            };
+
+            // Render all visualizations
+            autovisualiser.render_radar({ data: radarData });
+            autovisualiser.render_donut({ data: donutData });
+            autovisualiser.render_sankey({ data: sankeyData });
+        }, 1000);
+    </script>
+</body>
+</html>
